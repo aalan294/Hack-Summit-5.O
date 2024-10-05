@@ -146,7 +146,7 @@ const AdminDashBoard = () => {
       <SectionContainer>
         {/* Left Section: Doctors */}
         <Section>
-          <Header>Doctors</Header>
+          <Header>Hospitals</Header>
           <List>
             {hospital.map((doctor) => (
               <ListItem key={doctor.id}>

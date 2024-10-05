@@ -150,7 +150,7 @@ const NewDoctor = () => {
         });
 
         // Redirect to dashboard
-        window.location.href = '/admin/dashboard';
+        window.location.href = '/hospital/dashboard';
       } else {
         setError(response.data.message);
       }
