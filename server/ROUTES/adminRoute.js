@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 //verify hospital
-router.route('/verify-hospital')
+router.route('/verify-hospital/:id')
     .patch(require('../CONTROLLERS/adminController').verifyHospital)
 //verify pharmacy
 router.route('/verify-pharm')
