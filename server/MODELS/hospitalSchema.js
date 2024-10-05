@@ -14,3 +14,5 @@ const hospitalSchema = new mongoose.Schema({
         default: false
     }
 })
+
+module.exports = mongoose.model('hospital',hospitalSchema)

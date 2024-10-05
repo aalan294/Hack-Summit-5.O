@@ -1,6 +1,7 @@
 const Doctor = require('../MODELS/doctorSchema');
 const Pharmacy = require('../MODELS/pharmacySchema');
 const Reception = require('../MODELS/receptionSchema');
+const Hospital = require('../MODELS/hospitalSchema')
 const bcrypt = require('bcrypt')
 
 const registerDoctor = async (req, res) => {
@@ -107,5 +108,31 @@ const getReceptions = async(req,res)=>{
 
 }
 
-module.exports = {getDoctors,getPharamacies,getReceptions,registerDoctor,registerPharmacy,registerReception}
+const verifyHospital = async(req,res) =>{
+    try {
+        const {id} = req.params;
+
+        const hospital = await Hospital.findByIdAndUpdate(id,{isVerified:true});
+
+        res.json({message:"Hospital Verified Succesfully!..",status:true})
+    } catch (error) {
+        res.json({message:"Error caught on Verify Hospital",status:false});
+    }
+}
+
+const verifypharm = async(req,res) =>{
+    try {
+        const {id} = req.params;
+
+        const phamarcy = await Pharmacy.findByIdAndUpdate(id,{isVerified:true});
+
+        res.json({message:"phamarcy Verified Succesfully!..",status:true})
+    } catch (error) {
+        res.json({message:"Error caught on Verify phamarcy",status:false});
+    }
+}
+
+
+
+module.exports = {getDoctors,getPharamacies,getReceptions,registerDoctor,registerPharmacy,registerReception,verifyHospital,verifypharm}
 

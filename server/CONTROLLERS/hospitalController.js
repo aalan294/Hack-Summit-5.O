@@ -1,4 +1,5 @@
 const Hospital = require('../MODELS/hospitalSchema');
+const bcrypt = require('bcrypt')
 
 const hospitalRequest = async(req,res)=>{
     try {
@@ -17,7 +18,8 @@ const hospitalRequest = async(req,res)=>{
         const response = await hospital.save();
         res.json({message: "Hospital registered successfully",id:response._id,status: true});
     } catch (error) {
-        res.json({message:"error accured in registering Hospital", status: false})
+        console.log(error.message)
+        res.status(400).json({message:"error accured in registering Hospital", status: false})
     }
 }
 
