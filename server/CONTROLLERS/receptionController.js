@@ -6,11 +6,11 @@ const receptionLogin = async(req,res)=>{
         const {email, password} = req.body;
         const reception = await Reception.findOne({email});
         if(!reception){
-            res.json({message:"Reception not found on database",status: true})
+            throw new Error("Reception is not found in database")
         }
         const isMatch = await bcrypt.compare(password, reception.password);
         if(!isMatch){
-            res.json({message:"login failed",status:false})
+            throw new Error("Login Failed")
         }
         res.json({message:"login successful",user:reception,status:true})
     } catch (error) {

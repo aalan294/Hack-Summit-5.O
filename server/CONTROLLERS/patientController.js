@@ -14,7 +14,7 @@ const registerPatient = async (req, res) => {
 
         const existingPatient = await Patient.findOne({ email });
         if (existingPatient) {
-            return res.json({ message: "Patient already exists", status: false });
+            throw new Error("Patient already Regsiter")
         }
 
         const hashedPassword = await bcrypt.hash(contactNumber, 10);
@@ -48,13 +48,13 @@ const patientLogin = async (req, res) => {
         // Find the patient by email
         const patient = await Patient.findOne({ email });
         if (!patient) {
-            return res.json({ message: "Patient not found in the database", status: false });
+            throw new Error("patient Details is not found in Database")
         }
 
         // Compare the provided password with the stored hashed password
         const isMatch = await bcrypt.compare(password, patient.password);
         if (!isMatch) {
-            return res.json({ message: "Login failed", status: false });
+            throw new Error("Login failed")
         }
 
         // If login is successful

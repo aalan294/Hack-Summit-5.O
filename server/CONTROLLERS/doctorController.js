@@ -6,11 +6,11 @@ const loginDoctor = async(req,res)=>{
         const {email, password} = req.body;
         const doctor = await Doctor.findOne({email});
         if(!doctor){
-            res.json({message:"doctor not found on database",status: true})
+            throw new Error("Doctor already exists")
         }
         const isMatch = await bcrypt.compare(password, doctor.password);
         if(!isMatch){
-            res.json({message:"login failed",status:false})
+            throw new Error("Login Failed")
         }
         res.json({message:"login successful",user:doctor,status:true})
     } catch (error) {

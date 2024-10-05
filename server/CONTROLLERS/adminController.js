@@ -16,7 +16,7 @@ const registerDoctor = async (req, res) => {
         // Check if the doctor already exists
         const existingDoctor = await Doctor.findOne({ email });
         if (existingDoctor) {
-            return res.json({ message: "Doctor already exists", status: false });
+            throw new Error("Doctor already exists")
         }
 
         // Hash the password and create a new doctor
@@ -44,7 +44,7 @@ const registerReception = async(req,res)=>{
         }
         const existingReception = await Reception.findOne({email});
         if(existingReception){
-            res.json({message: "Receptionist already exists",status: false});
+            throw new Error("reception already exists")
         }
         const hashedPassword = await bcrypt.hash(email, 10);
         const reception = new Reception({
@@ -62,11 +62,11 @@ const registerPharmacy = async(req,res)=>{
     try {
         const {name,owner, email, phone, address, wallet, verification} = req.body;
         if(!name || !email || !phone || !address || !wallet || !owner || !verification){
-            res.json({message: "fields missing",status: false});
+            throw new Error("Fields Missing")
         }
         const existingPharmacy = await Pharmacy.findOne({email});
         if(existingPharmacy){
-            res.json({message: "Pharmacy already exists",status: false});
+            throw new Error("Pharmacy already exists")
         }
         const hashedPassword = await bcrypt.hash(email, 10);
         const pharmacy = new Pharmacy({

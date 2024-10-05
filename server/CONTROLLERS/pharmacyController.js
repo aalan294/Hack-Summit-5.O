@@ -7,11 +7,11 @@ const pharmLogin = async(req,res)=>{
         const {email, password} = req.body;
         const pharmacy = await Pharmacy.findOne({email});
         if(!pharmacy){
-            res.json({message:"Pharmacy not found on database",status: true})
+            throw new Error("Pharamcy is not in database")
         }
         const isMatch = await bcrypt.compare(password, pharmacy.password);
         if(!isMatch){
-            res.json({message:"login failed",status:false})
+            throw new Error("Login failed")
         }
         res.json({message:"login successful",user:pharmacy,status:true})
     } catch (error) {
