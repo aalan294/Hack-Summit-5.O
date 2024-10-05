@@ -42,9 +42,12 @@ const App = () => {
 
         {/* admin Routes */}
          <Route path='/admin/login' element={<AdminLogin/>}/> {/* done */}
-        <Route path='/admin/dashboard' element={<AdminDashBoard/>} />
-        <Route path='/admin/new-hos' element={<NewHospital/>} />
-        <Route path='/admin/new-pharm' element={<NewPharmacy/>} />
+        <Route path='/admin/dashboard' element={<AdminDashBoard/>} />  {/* done */}
+
+        <Route path='/admin/new-hos' element={<NewHospital/>} />  {/* done */}
+
+        <Route path='/admin/new-pharm' element={<NewPharmacy/>} />   {/* done */}
+
 
         {/* hospital routes */}
         <Route path='/hospital/request' element={<HospitalRequest/>} />
@@ -69,8 +72,10 @@ const App = () => {
         <Route path='/pharm/request' element={<PharmacyRequest/>} />
         <Route path='/pharm/login' element={<PharmacyLogin/>} />
         <Route path='/pharm/dashboard' element={<PharmacyDashboard/>} />
-        <Route path='/pharm/scanner/:id' element={<ScannerLogin/>} />
-        <Route path='/pharm/complete-pres' element={<UpdatePrescription/>} />
+        <Route path='/pharm/scanner/:id' element={<ScannerLogin/>} />  {/* done */}
+
+        <Route path='/pharm/complete-pres' element={<UpdatePrescription/>} />  {/* done */}
+
       </Routes>
     </div>
   )

@@ -81,7 +81,7 @@ const registerPharmacy = async(req,res)=>{
 
 const getPharamacies = async(req,res)=>{
     try {
-        const pharamacies = await Pharmacy.find();
+        const pharamacies = await Pharmacy.find({isVerified:true});
         res.json({message:"data fetched Successfully",pharmacies:pharamacies,status:true})
     } catch (error) {
         res.json({message:"error accured in getPharmacy",status: false})
@@ -89,10 +89,10 @@ const getPharamacies = async(req,res)=>{
 
 }
 
-const getDoctors = async(req,res)=>{
+const getHospital = async(req,res)=>{
     try {
-        const doctors = await Doctor.find();
-        res.json({message:"data fetched Successfully",doctors:doctors,status:true})
+        const doctors = await Hospital.find({isVerified:true});
+        res.json({message:"data fetched Successfully",hospitals:doctors,status:true})
     } catch (error) {
         res.json({message:"error accured in getDoctors",status: false})
     }
@@ -132,7 +132,30 @@ const verifypharm = async(req,res) =>{
     }
 }
 
+const getPharamaciesReq = async(req,res)=>{
+    try {
+        const pharamacies = await Pharmacy.find({isVerified:false});
+        res.json({message:"data fetched Successfully",pharmacies:pharamacies,status:true})
+    } catch (error) {
+        res.json({message:"error accured in getPharmacy",status: false})
+    }
+
+}
+
+const getHospitalReq = async(req,res)=>{
+    try {
+        const doctors = await Hospital.find({isVerified:false});
+        res.json({message:"data fetched Successfully",hospitals:doctors,status:true})
+    } catch (error) {
+        res.json({message:"error accured in getDoctors",status: false})
+    }
+
+}
 
 
-module.exports = {getDoctors,getPharamacies,getReceptions,registerDoctor,registerPharmacy,registerReception,verifyHospital,verifypharm}
+
+
+
+
+module.exports = {getHospital,getPharamaciesReq,getHospitalReq,getPharamacies,getReceptions,registerDoctor,registerPharmacy,registerReception,verifyHospital,verifypharm}
 

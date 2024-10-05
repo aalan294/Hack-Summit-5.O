@@ -98,22 +98,19 @@ const DropdownItem = styled.a`
 `;
 
 const AdminDashBoard = () => {
-  const [doctors, setDoctors] = useState([]);
+  const [hospital, setHospital] = useState([]);
   const [pharmacies, setPharmacies] = useState([]);
-  const [receptionists, setReceptionists] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
 
   // Fetch all doctors, pharmacies, and receptionists
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const doctorRes = await api.get('/admin/get-doc');
+        const hospitalRes = await api.get('/admin/get-hospital');
         const pharmacyRes = await api.get('/admin/get-pharm');
-        const receptionistRes = await api.get('/admin/get-recep');
 
-        setDoctors(doctorRes.data.doctors);
+        setHospital(hospitalRes.data.hospitals);
         setPharmacies(pharmacyRes.data.pharmacies);
-        setReceptionists(receptionistRes.data.receptions);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -121,7 +118,7 @@ const AdminDashBoard = () => {
 
     fetchData();
   }, []);
-
+  
   // Toggle dropdown visibility
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -133,17 +130,16 @@ const AdminDashBoard = () => {
       <HamburgerMenu onClick={toggleDropdown}>☰</HamburgerMenu>
       {showDropdown && (
         <DropdownMenu>
-          <DropdownItem href="/admin/new-doc">Register Doctor</DropdownItem>
-          <DropdownItem href="/admin/new-pharm">Register Pharmacy</DropdownItem>
-          <DropdownItem href="/admin/new-recep">Register Receptionist</DropdownItem>
+          <DropdownItem href="/admin/new-hos">Hospital request</DropdownItem>
+          <DropdownItem href="/admin/new-pharm">Pharamcy Request</DropdownItem>
+        
         </DropdownMenu>
       )}
 
       {/* Count Section */}
       <CountSection>
-        <CountBox>Doctors: {doctors.length}</CountBox>
+        <CountBox>Doctors: {hospital.length}</CountBox>
         <CountBox>Pharmacies: {pharmacies.length}</CountBox>
-        <CountBox>Receptionists: {receptionists.length}</CountBox>
       </CountSection>
 
       {/* Section Container */}
@@ -152,7 +148,7 @@ const AdminDashBoard = () => {
         <Section>
           <Header>Doctors</Header>
           <List>
-            {doctors.map((doctor) => (
+            {hospital.map((doctor) => (
               <ListItem key={doctor.id}>
                 <strong>Name:</strong> {doctor.name}<br />
                 <strong>Email:</strong> {doctor.email}<br />
@@ -171,20 +167,6 @@ const AdminDashBoard = () => {
                 <strong>Name:</strong> {pharmacy.name}<br />
                 <strong>Email:</strong> {pharmacy.email}<br />
                 <strong>Wallet:</strong> {pharmacy.wallet}
-              </ListItem>
-            ))}
-          </List>
-        </Section>
-
-        {/* Right Section: Receptionists */}
-        <Section>
-          <Header>Receptionists</Header>
-          <List>
-            {receptionists.map((receptionist) => (
-              <ListItem key={receptionist.id}>
-                <strong>Name:</strong> {receptionist.name}<br />
-                <strong>Email:</strong> {receptionist.email}<br />
-                <strong>Wallet:</strong> {receptionist.wallet}
               </ListItem>
             ))}
           </List>

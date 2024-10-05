@@ -12,9 +12,14 @@ export const abi = [
 				"type": "string"
 			},
 			{
-				"internalType": "enum MedicalPlatform.Dept",
+				"internalType": "enum Aaruush.Dept",
 				"name": "_dept",
 				"type": "uint8"
+			},
+			{
+				"internalType": "string",
+				"name": "_hospitalName",
+				"type": "string"
 			},
 			{
 				"internalType": "string[]",
@@ -78,7 +83,7 @@ export const abi = [
 			},
 			{
 				"indexed": false,
-				"internalType": "enum MedicalPlatform.Dept",
+				"internalType": "enum Aaruush.Dept",
 				"name": "dept",
 				"type": "uint8"
 			}
@@ -113,11 +118,16 @@ export const abi = [
 			},
 			{
 				"internalType": "string",
+				"name": "_hospital",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
 				"name": "_verificationHash",
 				"type": "string"
 			},
 			{
-				"internalType": "enum MedicalPlatform.Dept",
+				"internalType": "enum Aaruush.Dept",
 				"name": "_dept",
 				"type": "uint8"
 			}
@@ -141,16 +151,54 @@ export const abi = [
 			},
 			{
 				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
 				"name": "_verificationHash",
 				"type": "string"
 			},
 			{
-				"internalType": "enum MedicalPlatform.Role",
+				"internalType": "enum Aaruush.Role",
 				"name": "_role",
 				"type": "uint8"
 			}
 		],
-		"name": "registerUser",
+		"name": "registerFields",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_userAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "_id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_verificationHash",
+				"type": "string"
+			},
+			{
+				"internalType": "enum Aaruush.Role",
+				"name": "_role",
+				"type": "uint8"
+			}
+		],
+		"name": "registerReceptionist",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -184,6 +232,11 @@ export const abi = [
 				"type": "string"
 			},
 			{
+				"internalType": "string",
+				"name": "hospital",
+				"type": "string"
+			},
+			{
 				"internalType": "address",
 				"name": "doctorAddress",
 				"type": "address"
@@ -194,7 +247,7 @@ export const abi = [
 				"type": "string"
 			},
 			{
-				"internalType": "enum MedicalPlatform.Dept",
+				"internalType": "enum Aaruush.Dept",
 				"name": "dept",
 				"type": "uint8"
 			}
@@ -220,6 +273,11 @@ export const abi = [
 						"type": "string"
 					},
 					{
+						"internalType": "string",
+						"name": "hospital",
+						"type": "string"
+					},
+					{
 						"internalType": "address",
 						"name": "doctorAddress",
 						"type": "address"
@@ -230,12 +288,12 @@ export const abi = [
 						"type": "string"
 					},
 					{
-						"internalType": "enum MedicalPlatform.Dept",
+						"internalType": "enum Aaruush.Dept",
 						"name": "dept",
 						"type": "uint8"
 					}
 				],
-				"internalType": "struct MedicalPlatform.Doctor",
+				"internalType": "struct Aaruush.Doctor",
 				"name": "",
 				"type": "tuple"
 			}
@@ -262,6 +320,11 @@ export const abi = [
 					},
 					{
 						"internalType": "string",
+						"name": "hospital",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
 						"name": "userId",
 						"type": "string"
 					},
@@ -276,7 +339,7 @@ export const abi = [
 						"type": "string"
 					},
 					{
-						"internalType": "enum MedicalPlatform.Dept",
+						"internalType": "enum Aaruush.Dept",
 						"name": "dept",
 						"type": "uint8"
 					},
@@ -301,7 +364,7 @@ export const abi = [
 						"type": "bool"
 					}
 				],
-				"internalType": "struct MedicalPlatform.Prescription",
+				"internalType": "struct Aaruush.Prescription",
 				"name": "",
 				"type": "tuple"
 			}
@@ -327,6 +390,11 @@ export const abi = [
 						"type": "string"
 					},
 					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
 						"internalType": "address",
 						"name": "userAddress",
 						"type": "address"
@@ -337,12 +405,12 @@ export const abi = [
 						"type": "string"
 					},
 					{
-						"internalType": "enum MedicalPlatform.Role",
+						"internalType": "enum Aaruush.Role",
 						"name": "role",
 						"type": "uint8"
 					}
 				],
-				"internalType": "struct MedicalPlatform.User",
+				"internalType": "struct Aaruush.User",
 				"name": "",
 				"type": "tuple"
 			}
@@ -380,6 +448,11 @@ export const abi = [
 			},
 			{
 				"internalType": "string",
+				"name": "hospital",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
 				"name": "userId",
 				"type": "string"
 			},
@@ -394,7 +467,7 @@ export const abi = [
 				"type": "string"
 			},
 			{
-				"internalType": "enum MedicalPlatform.Dept",
+				"internalType": "enum Aaruush.Dept",
 				"name": "dept",
 				"type": "uint8"
 			},
@@ -423,6 +496,11 @@ export const abi = [
 				"type": "string"
 			},
 			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
 				"internalType": "address",
 				"name": "userAddress",
 				"type": "address"
@@ -433,7 +511,7 @@ export const abi = [
 				"type": "string"
 			},
 			{
-				"internalType": "enum MedicalPlatform.Role",
+				"internalType": "enum Aaruush.Role",
 				"name": "role",
 				"type": "uint8"
 			}
