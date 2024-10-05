@@ -59,7 +59,7 @@ const Home = () => {
       <nav className="nav2">
         <ul>
           <li><Link to={'/doctor/login'} >DOCTOR</Link></li>
-          <li><Link to={'/#'} >PATIENT</Link></li>
+          <li><Link to={'/hospital/login'} >Hospital</Link></li>
           <li><Link to={'/reception/login'} >RECEPTIONIST</Link></li>
           <li><Link to={'/pharm/login'} >PHARMACIST</Link></li>
           <li><Link to={'/hospital/request'} >RegisterHospital</Link></li>
