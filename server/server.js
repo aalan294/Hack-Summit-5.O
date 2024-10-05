@@ -17,8 +17,17 @@ mongoose.connect(DB_URL).then(()=>{
 
 app.use(cors());
 app.use(express.json());
+//routes
+app.use('/hospital',require('./ROUTES/hospitalRoute')) //not done
 app.use('/doctor',require('./ROUTES/doctorRoute'))
 app.use('/admin',require('./ROUTES/adminRoute'))
 app.use('/pharm', require('./ROUTES/pharmacyRoute'))
 app.use('/patient',require('./ROUTES/patientRoute'))
 app.use('/reception',require('./ROUTES/receptionRoute'))
+
+
+
+
+
+
+

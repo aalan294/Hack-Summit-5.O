@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const pharmacySchema = new mongoose.Schema({
+const hospitalSchema = new mongoose.Schema({
     owner: String,
     email: String,
     address: String,
@@ -14,5 +14,3 @@ const pharmacySchema = new mongoose.Schema({
         default: false
     }
 })
-
-module.exports = mongoose.model('pharmacy',pharmacySchema)
