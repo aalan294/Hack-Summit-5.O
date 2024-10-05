@@ -14,6 +14,7 @@ import HospitalDashBoard from './PAGES/hospital/HospitalDashBoard';
 import HospitalRequest from './PAGES/hospital/HospitalRequest';
 import NewDoctor from './PAGES/hospital/NewDoctor';
 import NewReceptionist from './PAGES/hospital/NewReceptionist';
+import UnverifiedH from './PAGES/hospital/UnverifiedH';
 
 //reception
 import ReceptionLogin from './PAGES/reception/ReceptionLogin'
@@ -33,6 +34,7 @@ import PharmacyLogin from './PAGES/pharmacy/PharmacyLogin'
 import PharmacyDashboard from './PAGES/pharmacy/PharmacyDashboard'
 import ScannerLogin from './PAGES/pharmacy/ScannerLogin'
 import UpdatePrescription from './PAGES/pharmacy/UpdatePrescription'
+import UnverifiedP from './PAGES/pharmacy/UnverifiedP';
 
 const App = () => {
   return (
@@ -51,10 +53,11 @@ const App = () => {
 
         {/* hospital routes */}
         <Route path='/hospital/request' element={<HospitalRequest/>} />  {/* done */}
-        <Route path='/hospital/login' element={<HospitalLogin/>} />                                              {/* ???? */}
+        <Route path='/hospital/login' element={<HospitalLogin/>} />      {/*done */}                                        
         <Route path='/hospital/dashboard' element={<HospitalDashBoard/>} />{/*done */}
         <Route path='/hospital/new-doc' element={<NewDoctor/>} /> {/* done */}
         <Route path='/hospital/new-recep' element={<NewReceptionist/>} /> {/* done */}
+        <Route path='/hospital/unverified' element={<UnverifiedH/>} />  {/* done */}
 
         {/* Reception Routes */}
         <Route path='/reception/login' element={<ReceptionLogin/>} /> {/* done */}
@@ -70,11 +73,12 @@ const App = () => {
 
         {/* Pharmacy Routes */}
         <Route path='/pharm/request' element={<PharmacyRequest/>} />  {/* done */}
-        <Route path='/pharm/login' element={<PharmacyLogin/>} />                                           {/* ???? */}
-        <Route path='/pharm/dashboard' element={<PharmacyDashboard/>} />                                     {/* ???? */}
+        <Route path='/pharm/login' element={<PharmacyLogin/>} />                {/*done */}                           
+        <Route path='/pharm/dashboard' element={<PharmacyDashboard/>} />        {/*done */}                             
         <Route path='/pharm/scanner/:id' element={<ScannerLogin/>} />  {/* done */}
 
         <Route path='/pharm/complete-pres' element={<UpdatePrescription/>} />  {/* done */}
+        <Route path='/pharm/unverified' element={<UnverifiedP/>} /> {/* done */}
 
       </Routes>
     </div>

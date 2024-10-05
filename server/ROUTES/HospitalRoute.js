@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-
+router.route('/login')
+    .post(require('../CONTROLLERS/hospitalController').HospitalLogin)
 router.route('/reg-doc')
     .post(require('../CONTROLLERS/adminController').registerDoctor);
 router.route('/reg-recep')

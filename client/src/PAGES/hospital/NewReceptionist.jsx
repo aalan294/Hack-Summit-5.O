@@ -125,7 +125,7 @@ const NewReceptionist = () => {
 
     try {
       // Step 1: Register receptionist in the backend
-      const response = await api.post('/admin/reg-recep', receptionistData);
+      const response = await api.post('/hospital/reg-recep', receptionistData);
 
       if (response.data.status) {
         const { id } = response.data;
@@ -164,9 +164,10 @@ const NewReceptionist = () => {
       const contract = new web3.eth.Contract(abi, contractAddress);
 
       await contract.methods
-        .registerUser(
+        .registerReceptionist(
           receptionistData.wallet, 
           receptionistId, 
+          "Sample",
           receptionistData.verification, 
           1 // Role.Receptionist enum is 1
         )

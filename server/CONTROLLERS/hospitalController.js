@@ -25,5 +25,28 @@ const hospitalRequest = async(req,res)=>{
     }
 }
 
+const HospitalLogin = async(req,res) =>{
+    try {
+        const { email, password } = req.body;
+        
+        // Find the patient by email
+        const hospital = await Hospital.findOne({ email });
+        if (!hospital) {
+            throw new Error("patient Details is not found in Database")
+        }
 
-module.exports = {hospitalRequest}
+       
+        const isMatch = await bcrypt.compare(password, hospital.password);
+        if (!isMatch) {
+            throw new Error("Login failed")
+        }
+
+        return res.json({ message: "Login successful", user: hospital, status: true });
+    } catch (error) {
+        console.error('Error caught in patient login:', error);
+        return res.json({ message: "Error caught in patient login", status: false });
+    }
+}
+
+
+module.exports = {hospitalRequest,HospitalLogin}

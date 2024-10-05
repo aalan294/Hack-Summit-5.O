@@ -128,7 +128,7 @@ const NewDoctor = () => {
 
     try {
       // Step 1: Register doctor in the backend
-      const response = await api.post('/admin/reg-doc', doctorData);
+      const response = await api.post('/hospital/reg-doc', doctorData);
 
       if (response.data.status) {
         const { id } = response.data;
@@ -175,7 +175,7 @@ const NewDoctor = () => {
 
       // Call the smart contract function
       await contract.methods
-        .registerDoctor(doctorData.wallet, doctorId, doctorData.verification, deptEnum)
+        .registerDoctor(doctorData.wallet, doctorId,"Sample", doctorData.verification, deptEnum)
         .send({ from: accounts[0] });
 
       console.log('Doctor registered on blockchain successfully!');
