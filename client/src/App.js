@@ -50,9 +50,9 @@ const App = () => {
 
 
         {/* hospital routes */}
-        <Route path='/hospital/request' element={<HospitalRequest/>} />
-        <Route path='/hospital/login' element={<HospitalLogin/>} />
-        <Route path='/hospital/dashboard' element={<HospitalDashBoard/>} />{/* partially done */}
+        <Route path='/hospital/request' element={<HospitalRequest/>} />  {/* done */}
+        <Route path='/hospital/login' element={<HospitalLogin/>} />                                              {/* ???? */}
+        <Route path='/hospital/dashboard' element={<HospitalDashBoard/>} />{/*done */}
         <Route path='/hospital/new-doc' element={<NewDoctor/>} /> {/* done */}
         <Route path='/hospital/new-recep' element={<NewReceptionist/>} /> {/* done */}
 
@@ -69,9 +69,9 @@ const App = () => {
         <Route path='/doctor/analyse/:id' element={<DoctorAnalysis/>} /> {/* done */}
 
         {/* Pharmacy Routes */}
-        <Route path='/pharm/request' element={<PharmacyRequest/>} />
-        <Route path='/pharm/login' element={<PharmacyLogin/>} />
-        <Route path='/pharm/dashboard' element={<PharmacyDashboard/>} />
+        <Route path='/pharm/request' element={<PharmacyRequest/>} />  {/* done */}
+        <Route path='/pharm/login' element={<PharmacyLogin/>} />                                           {/* ???? */}
+        <Route path='/pharm/dashboard' element={<PharmacyDashboard/>} />                                     {/* ???? */}
         <Route path='/pharm/scanner/:id' element={<ScannerLogin/>} />  {/* done */}
 
         <Route path='/pharm/complete-pres' element={<UpdatePrescription/>} />  {/* done */}

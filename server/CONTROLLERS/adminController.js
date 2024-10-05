@@ -108,6 +108,17 @@ const getReceptions = async(req,res)=>{
 
 }
 
+const getDoctors = async(req,res)=>{
+    try {
+        const reception = await Doctor.find();
+        res.json({message:"data fetched Successfully",doctors:reception,status:true})
+    } catch (error) {
+        res.json({message:"error accured in getReceptions",status: false})
+    }
+
+}
+
+
 const verifyHospital = async(req,res) =>{
     try {
         const {id} = req.params;
@@ -157,5 +168,5 @@ const getHospitalReq = async(req,res)=>{
 
 
 
-module.exports = {getHospital,getPharamaciesReq,getHospitalReq,getPharamacies,getReceptions,registerDoctor,registerPharmacy,registerReception,verifyHospital,verifypharm}
+module.exports = {getDoctors,getHospital,getPharamaciesReq,getHospitalReq,getPharamacies,getReceptions,registerDoctor,registerPharmacy,registerReception,verifyHospital,verifypharm}
 

@@ -99,7 +99,6 @@ const DropdownItem = styled.a`
 
 const HospitalDashBoard = () => {
   const [doctors, setDoctors] = useState([]);
-  const [pharmacies, setPharmacies] = useState([]);
   const [receptionists, setReceptionists] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -107,12 +106,13 @@ const HospitalDashBoard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const doctorRes = await api.get('/admin/get-doc');
-        const pharmacyRes = await api.get('/admin/get-pharm');
-        const receptionistRes = await api.get('/admin/get-recep');
+        
+        const receptionistRes = await api.get('/hospital/get-recep');
+        const doctorRes = await api.get('/hospital/get-doc');
+        console.log(receptionistRes.data.receptions,doctorRes.data.doctors)
+   
 
         setDoctors(doctorRes.data.doctors);
-        setPharmacies(pharmacyRes.data.pharmacies);
         setReceptionists(receptionistRes.data.receptions);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -133,16 +133,14 @@ const HospitalDashBoard = () => {
       <HamburgerMenu onClick={toggleDropdown}>☰</HamburgerMenu>
       {showDropdown && (
         <DropdownMenu>
-          <DropdownItem href="/admin/new-doc">Register Doctor</DropdownItem>
-          <DropdownItem href="/admin/new-pharm">Register Pharmacy</DropdownItem>
-          <DropdownItem href="/admin/new-recep">Register Receptionist</DropdownItem>
+          <DropdownItem href="/hospital/new-doc">Register Doctor</DropdownItem>
+          <DropdownItem href="/hospital/new-recep">Register Receptionist</DropdownItem>
         </DropdownMenu>
       )}
 
       {/* Count Section */}
       <CountSection>
         <CountBox>Doctors: {doctors.length}</CountBox>
-        <CountBox>Pharmacies: {pharmacies.length}</CountBox>
         <CountBox>Receptionists: {receptionists.length}</CountBox>
       </CountSection>
 
@@ -157,20 +155,6 @@ const HospitalDashBoard = () => {
                 <strong>Name:</strong> {doctor.name}<br />
                 <strong>Email:</strong> {doctor.email}<br />
                 <strong>Wallet:</strong> {doctor.wallet}
-              </ListItem>
-            ))}
-          </List>
-        </Section>
-
-        {/* Center Section: Pharmacies */}
-        <Section>
-          <Header>Pharmacies</Header>
-          <List>
-            {pharmacies.map((pharmacy) => (
-              <ListItem key={pharmacy.id}>
-                <strong>Name:</strong> {pharmacy.name}<br />
-                <strong>Email:</strong> {pharmacy.email}<br />
-                <strong>Wallet:</strong> {pharmacy.wallet}
               </ListItem>
             ))}
           </List>

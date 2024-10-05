@@ -85,7 +85,7 @@ const SuccessMessage = styled.p`
 `;
 
 const NewDoctor = () => {
-  const contractAddress = '0x2Ea64dAc8cd5E51E75c3273C2F8C152218002cE5';
+  const contractAddress = '0x3Ff135a515b3b9D2711E0BA4AcC5c626f4c089Fd';
   const [doctorData, setDoctorData] = useState({
     name: '',
     email: '',

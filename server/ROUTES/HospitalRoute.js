@@ -7,7 +7,9 @@ router.route('/reg-doc')
 router.route('/reg-recep')
     .post(require('../CONTROLLERS/adminController').registerReception);
 router.route('/get-recep')
-    .get(require('../CONTROLLERS/adminController').getReceptions)
+    .get(require('../CONTROLLERS/adminController').getReceptions);
+router.route('/get-doc')
+    .get(require('../CONTROLLERS/adminController').getDoctors)
 router.route('/req-hospital')
     .post(require('../CONTROLLERS/hospitalController').hospitalRequest)// request to admin
 

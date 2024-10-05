@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { abi } from '../../abi';
 import { pinata } from '../../config';
 
-const contractAddress = '0x2Ea64dAc8cd5E51E75c3273C2F8C152218002cE5'; // Replace with your contract address
+const contractAddress = '0x3Ff135a515b3b9D2711E0BA4AcC5c626f4c089Fd'; // Replace with your contract address
 
 const ScannerLogin = () => {
   const { id } = useParams(); // Get the prescription ID from the URL

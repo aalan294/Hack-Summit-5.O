@@ -58,7 +58,7 @@ const departmentMapping = [
 ];
 
 // Smart contract details (Replace with your contract address and ABI)
-const contractAddress = '0x2Ea64dAc8cd5E51E75c3273C2F8C152218002cE5'; // Replace with your contract address// Replace with your contract ABI
+const contractAddress = '0x3Ff135a515b3b9D2711E0BA4AcC5c626f4c089Fd'; // Replace with your contract address// Replace with your contract ABI
 
 const PatientAnalysis = () => {
   const { id } = useParams(); // Get the patient ID from URL
