@@ -8,7 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 // Initialize Web3
 const web3 = new Web3(window.ethereum); // Assumes you are using MetaMask
-const contractAddress = '0x3Ff135a515b3b9D2711E0BA4AcC5c626f4c089Fd'; // Your contract address
+const contractAddress = '0x2Ea64dAc8cd5E51E75c3273C2F8C152218002cE5'; // Your contract address
 const prescriptionContract = new web3.eth.Contract(abi, contractAddress);
 
 // Enum Mapping (Assuming these are your enum values in the smart contract)
@@ -196,7 +196,6 @@ const NewPrescription = () => {
         userId,
         description,
         dept, // Enum value for department
-        "Sample",
         medicines,
         documents,
         allergies
