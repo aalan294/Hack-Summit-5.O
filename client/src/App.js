@@ -35,6 +35,8 @@ import PharmacyDashboard from './PAGES/pharmacy/PharmacyDashboard'
 import ScannerLogin from './PAGES/pharmacy/ScannerLogin'
 import UpdatePrescription from './PAGES/pharmacy/UpdatePrescription'
 import UnverifiedP from './PAGES/pharmacy/UnverifiedP';
+import PatientLogin from './PAGES/patient/PatientLogin';
+import PatientDashboard from './PAGES/patient/PatientDashboard';
 
 const App = () => {
   return (
@@ -79,6 +81,12 @@ const App = () => {
 
         <Route path='/pharm/complete-pres' element={<UpdatePrescription/>} />  {/* done */}
         <Route path='/pharm/unverified' element={<UnverifiedP/>} /> {/* done */}
+
+
+        {/*Patient Router */}
+
+        <Route path='/patient-login' element={<PatientLogin/>} />
+        <Route path='/patient/dashboard' element={<PatientDashboard/>} />
 
       </Routes>
     </div>
