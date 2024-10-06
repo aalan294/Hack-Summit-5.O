@@ -5,24 +5,31 @@ import styled from 'styled-components';
 import Web3 from 'web3';
 import { pinata } from '../../config';
 import { abi } from '../../abi';
+import AdminNav from './AdminNav';
 
 const NewPharmacyContainer = styled.div`
   background-color: #f0f8ff;
   color: #003366;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 800px;
   margin: auto;
+  h2{
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const PharmacyList = styled.ul`
+ display: flex;
+flex-wrap: wrap;
+flex-direction: row;
   list-style-type: none;
-  padding: 0;
+  padding: 10px;
+  width: 100%;
 `;
 
 const PharmacyItem = styled.li`
-  padding: 20px;
-  margin: 10px 0;
+   padding: 20px;
+  margin: 3rem;
+  width: 400px;
   border: 1px solid #003366;
   border-radius: 5px;
   background-color: #ffffff;
@@ -140,6 +147,7 @@ const NewPharmacy = () => {
 
   return (
     <NewPharmacyContainer>
+      <AdminNav/>
       <h2>Pharmacy List</h2>
       <PharmacyList>
         {pharmacies.map((pharmacy) => (

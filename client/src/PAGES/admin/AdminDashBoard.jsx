@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../API/api';
 import styled from 'styled-components';
+import AdminNav from './AdminNav';
 
 // Styled Components with Blue and White Theme
 const Container = styled.div`
@@ -8,15 +9,17 @@ const Container = styled.div`
   flex-direction: column;
   height: 100vh;
   background-color: #f0f4f8;
-  padding: 20px;
   position: relative;
 `;
 
 const SectionContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1.5rem;
   margin-top: 20px;
-  flex-grow: 1;
+  flex-grow: 0.8;
+  padding: 10px;
+  overflow: scroll;
 `;
 
 const Section = styled.div`
@@ -26,6 +29,8 @@ const Section = styled.div`
   border: 1px solid #007bff;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+ 
 `;
 
 const Header = styled.h2`
@@ -45,62 +50,19 @@ const ListItem = styled.li`
   background-color: #f9f9f9;
   border: 1px solid #007bff;
   border-radius: 5px;
-`;
-
-const CountSection = styled.div`
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-  background-color: #007bff;
-  border-radius: 10px;
-  color: white;
-`;
-
-const CountBox = styled.div`
-  padding: 15px;
-  background-color: #0056b3;
-  border-radius: 8px;
-  font-size: 18px;
-  color: #fff;
-  width: 150px;
-  text-align: center;
-`;
-
-const HamburgerMenu = styled.div`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: #007bff;
-  padding: 10px;
-  border-radius: 5px;
   cursor: pointer;
-  color: white;
-`;
-
-const DropdownMenu = styled.div`
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-`;
-
-const DropdownItem = styled.a`
-  display: block;
-  padding: 10px;
-  text-decoration: none;
-  color: #007bff;
-  &:hover {
-    background-color: #f5f5f5;
+  transition: 0.5s;
+  &:hover{
+    transform: scale(1.05);
   }
 `;
+
+
 
 const AdminDashBoard = () => {
   const [hospital, setHospital] = useState([]);
   const [pharmacies, setPharmacies] = useState([]);
-  const [showDropdown, setShowDropdown] = useState(false);
+ 
 
   // Fetch all doctors, pharmacies, and receptionists
   useEffect(() => {
@@ -119,28 +81,13 @@ const AdminDashBoard = () => {
     fetchData();
   }, []);
   
-  // Toggle dropdown visibility
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
+ 
 
   return (
     <Container>
-      {/* Hamburger Menu */}
-      <HamburgerMenu onClick={toggleDropdown}>☰</HamburgerMenu>
-      {showDropdown && (
-        <DropdownMenu>
-          <DropdownItem href="/admin/new-hos">Hospital request</DropdownItem>
-          <DropdownItem href="/admin/new-pharm">Pharamcy Request</DropdownItem>
-        
-        </DropdownMenu>
-      )}
+      
 
-      {/* Count Section */}
-      <CountSection>
-        <CountBox>Doctors: {hospital.length}</CountBox>
-        <CountBox>Pharmacies: {pharmacies.length}</CountBox>
-      </CountSection>
+     <AdminNav/>
 
       {/* Section Container */}
       <SectionContainer>

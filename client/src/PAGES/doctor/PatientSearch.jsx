@@ -68,12 +68,11 @@ const PatientSearch = () => {
     const fetchPatients = async () => {
       try {
         const response = await api.get('/doctor/all-patients');
+        console.log(response)
         const allPatients = response.data.patients;
 
         // Filter patients based on the doctor's department (use enum comparison)
-        const deptPatients = allPatients.filter(patient =>
-          patient.history.some(record => deptEnum[record.dept] === doctorDept)
-        );
+        const deptPatients = allPatients
 
         setPatients(deptPatients);
         setFilteredPatients(deptPatients); // Initialize filtered patients

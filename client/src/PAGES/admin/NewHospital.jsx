@@ -5,24 +5,34 @@ import styled from 'styled-components';
 import Web3 from 'web3';
 import { pinata } from '../../config';
 import { abi } from '../../abi';
+import AdminNav from './AdminNav';
 
 const NewHospitalContainer = styled.div`
   background-color: #f0f8ff;
   color: #003366;
-  padding: 20px;
   border-radius: 10px;
-  max-width: 800px;
   margin: auto;
+  h2{
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+  }
 `;
 
 const HospitalList = styled.ul`
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
   list-style-type: none;
-  padding: 0;
+  padding: 10px;
+  width: 100%;
 `;
 
 const HospitalItem = styled.li`
   padding: 20px;
   margin: 10px 0;
+  margin: 3rem;
+  width: 400px;
   border: 1px solid #003366;
   border-radius: 5px;
   background-color: #ffffff;
@@ -140,6 +150,7 @@ const NewHospital = () => {
 
   return (
     <NewHospitalContainer>
+      <AdminNav/>
       <h2>Hospital List</h2>
       <HospitalList>
         {hospitals.map((hospital) => (
