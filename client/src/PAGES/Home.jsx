@@ -59,7 +59,7 @@ const Home = () => {
       <nav className="nav2">
         <ul>
           <li><Link to={'/doctor/login'} >DOCTOR</Link></li>
-          <li><Link to={'/hospital/login'} >Hospital</Link></li>
+          <li><Link to={'/hospital/login'} >HOSPITAL</Link></li>
           <li><Link to={'/reception/login'} >RECEPTIONIST</Link></li>
           <li><Link to={'/pharm/login'} >PHARMACIST</Link></li>
           <li><Link to={'/hospital/request'} >RegisterHospital</Link></li>
@@ -71,67 +71,6 @@ const Home = () => {
         <div className="details">
           <h1>Hospitals Providing total HealthCare <span>Solutions</span></h1>
           <p>Denouncing pleasure and praising pain was born and we will give you a complete account of the system</p>
-        </div>
-      </section>
-      <section className="teams">
-        <h1>Team Of Consultants</h1>
-        <div className="cards">
-          <div className="card">
-            <div className="upper">
-              <h1>Marc Parcival</h1>
-              <h3>Newyork</h3>
-              <h2>Contact</h2>
-              <p>+321 567 89 0123</p>
-              <p>Bailey@Hospitals.com</p>
-            </div>
-            <img src={consultantImage1} alt="" />
-            <div className="lower">
-              <h1>Mark Parcival</h1>
-              <p>New York</p>
-            </div>
-          </div>
-          <div className="card">
-            <div className="upper">
-              <h1>Marc Parcival</h1>
-              <h3>Newyork</h3>
-              <h2>Contact</h2>
-              <p>+321 567 89 0123</p>
-              <p>Bailey@Hospitals.com</p>
-            </div>
-            <img src={consultantImage2} alt="" />
-            <div className="lower">
-              <h1>Mark Parcival</h1>
-              <p>New York</p>
-            </div>
-          </div>
-          <div className="card">
-            <div className="upper">
-              <h1>Marc Parcival</h1>
-              <h3>Newyork</h3>
-              <h2>Contact</h2>
-              <p>+321 567 89 0123</p>
-              <p>Bailey@Hospitals.com</p>
-            </div>
-            <img src={consultantImage3} alt="" />
-            <div className="lower">
-              <h1>Mark Parcival</h1>
-              <p>New York</p>
-            </div>
-          </div>
-          <div className="card">
-            <div className="upper">
-              <h1>Marc Parcival</h1>
-              <h3>Newyork</h3>
-              <h2>Contact</h2>
-              <p>+321 567 89 0123</p>
-              <p>Bailey@Hospitals.com</p>
-            </div>
-            <img src={consultantImage4} alt="" />
-            <div className="lower">
-              <h1>Mark Parcival</h1>
-              <p>New York</p>
-            </div>
-          </div>
         </div>
       </section>
       <footer className="footer1">
