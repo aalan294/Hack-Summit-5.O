@@ -196,6 +196,7 @@ const NewPrescription = () => {
         userId,
         description,
         dept, // Enum value for department
+        "sample",
         medicines,
         documents,
         allergies
