@@ -81,16 +81,17 @@
     background-color: rgb(22, 91, 119);
 }
 .landingimg{
-    width: 100%;
-    height: 100vh;
+    width: 100vw;
+    height: 85vh;
     object-fit: cover;
+    background-position: center;
     
 }
 
 .details{
-    position: relative;
-    bottom: 450px;
-    left: 800px;
+    position: absolute;
+    top: 200px;
+    left: 750px;
     width: 35%;
     padding: 2rem;
     background-color: white;
@@ -210,8 +211,11 @@
 .footer1 .lists{
     display: flex;
     justify-content: space-between;
+  
+    cursor: pointer;
 }
 .footer1 .lists ul{
+    transition: 0.5s;
     list-style-type:none ;
 }
 .footer1 .appoint form{
@@ -249,8 +253,8 @@
     color: white;
 }
 .footer1 .lists ul li:hover{
-    transition: all 0.3s;
-    list-style-type: disc;
+   transform: scale(1.1);
+    list-style-type: none;
     color: aqua;
     list-style-position: inside;
 }
